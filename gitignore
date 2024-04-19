@@ -1,0 +1,6 @@
+checker_Mac
+push_swap
+
+push_swap_tester/
+
+*.o
