@@ -6,7 +6,7 @@
 /*   By: tmontani <tmontani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:37:13 by tmontani          #+#    #+#             */
-/*   Updated: 2024/04/19 16:32:47 by tmontani         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:28:58 by tmontani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_free_array(char **array)
 int	ft_free(t_stack *stack_a)
 {
 	t_stack	*temp;
+
 	if (stack_a)
 	{
 		while (stack_a->next)
@@ -40,6 +41,7 @@ int	ft_free(t_stack *stack_a)
 	}
 	return (write(2, "Error\n", 6));
 }
+
 int	ft_handle_operators(char *str)
 {
 	int	j;
@@ -56,6 +58,7 @@ int	ft_handle_operators(char *str)
 	}
 	return (1);
 }
+
 int	stack_sorted(t_stack *stack_a)
 {
 	if (stack_a == NULL || stack_a->next == NULL)

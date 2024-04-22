@@ -6,7 +6,7 @@
 /*   By: tmontani <tmontani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:38:29 by tmontani          #+#    #+#             */
-/*   Updated: 2024/04/05 13:23:34 by tmontani         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:35:30 by tmontani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	send_to_algo(t_stack **stack_a, int stack_len)
 {
-	// print_stack(stack_a);
 	if (stack_len == 0)
 		return ;
 	else if (stack_len == 2)
-		if((*stack_a)->next->value < (*stack_a)->value)
+		if ((*stack_a)->next->value < (*stack_a)->value)
 			sa(stack_a);
 	if (stack_sorted((*stack_a)))
 		return ;
@@ -26,7 +25,7 @@ void	send_to_algo(t_stack **stack_a, int stack_len)
 		sort_3(stack_a);
 	if (stack_len > 3)
 	{
-		big_sort(stack_a, stack_len);
+		big_sort(stack_a);
 	}
-		return ;
+	return ;
 }

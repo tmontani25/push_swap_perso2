@@ -6,7 +6,7 @@
 /*   By: tmontani <tmontani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:13:36 by tmontani          #+#    #+#             */
-/*   Updated: 2024/04/19 15:28:16 by tmontani         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:31:14 by tmontani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	is_digit(char c)
 		return (1);
 	return (0);
 }
+
 int	check_special_chars(char *str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (str[i])
 	{
@@ -29,29 +30,31 @@ int	check_special_chars(char *str)
 			return (1);
 		i++;
 	}
-		return (0);
+	return (0);
 }
+
 int	check_same_nb(long nb, t_stack *stack_a)
 {
 	if (!stack_a)
 		return (1);
-		while (stack_a)
-		{
-			if (stack_a->value == nb)
-				return (0);
-			stack_a = stack_a->next;
-		}
+	while (stack_a)
+	{
+		if (stack_a->value == nb)
+			return (0);
+		stack_a = stack_a->next;
+	}
 	return (1);
 }
+
 int	check_stack(t_stack *stack_a)
 {
-	int count;
-	t_stack *temp;
+	int		count;
+	t_stack	*temp;
+
 	temp = stack_a;
 	count = 0;
-
 	if (stack_a == NULL)
-		return(0);
+		return (0);
 	while (temp)
 	{
 		count++;
@@ -61,14 +64,3 @@ int	check_stack(t_stack *stack_a)
 		return (0);
 	return (count);
 }
-void print_stack(t_stack **stack_a)
- {
- 	t_stack *current;
-
- 	current = *stack_a;
- 	while (current != NULL)
- 	{
- 		printf("node: %d\n", current->value);
- 		current = current->next;
- 	}
- }
