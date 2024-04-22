@@ -6,7 +6,7 @@
 /*   By: tmontani <tmontani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:32:03 by tmontani          #+#    #+#             */
-/*   Updated: 2024/04/19 16:28:34 by tmontani         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:49:17 by tmontani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,30 +87,29 @@ void	set_above(t_stack *stack_a, t_stack *stack_b)
 		stack_b = stack_b->next;
 	}
 }
-void	find_target(t_stack *stack_a, t_stack *stack_b)
+void    find_target(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack *temp;
-	t_stack	*target;
-	long	value;
+    t_stack    *tempa;
+    t_stack    *target_node;
+    long    val_a;
 
-	target = NULL;
-	while(stack_b)
-	{
-		temp = stack_a;
-		value = LONG_MAX;
-		while (temp)
-		{
-			if (temp->value > stack_b->value && temp->value < value)
-			{
-				value = temp->value;
-				target = temp;
-			}
-			temp = temp->next;
-		}
-		if (target == NULL)
-			stack_b->target = find_smallest(stack_a);
-		else
-			stack_b->target = target;
-		stack_b = stack_b->next;
-	}
+    while (stack_b != NULL)
+    {
+        tempa = stack_a;
+        val_a = LONG_MAX;
+        while (tempa)
+        {
+            if (tempa->value > stack_b->value && tempa->value < val_a)
+            {
+                val_a = tempa->value;
+                target_node = tempa;
+            }
+            tempa = tempa->next;
+        }
+        if (val_a == LONG_MAX)
+            stack_b->target = find_smallest(stack_a);
+        else
+            stack_b->target = target_node;
+        stack_b = stack_b->next;
+    }
 }
